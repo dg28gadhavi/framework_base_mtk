@@ -121,6 +121,7 @@ import android.text.TextUtils;
 import android.util.ArrayMap;
 import android.util.ArraySet;
 import android.util.AtomicFile;
+import java.util.HashMap;
 import android.util.Log;
 import android.util.Slog;
 import android.util.SparseArray;
@@ -265,7 +266,7 @@ public class NotificationManagerService extends SystemService {
     private boolean mMultipleNotificationLeds;
     private boolean mMultipleLedsEnabledSetting = false;
 
-    private boolean mAutoGenerateNotificationColor = true;
+    private boolean mAutoGenerateNotificationColor = false; // zormax
 
     private boolean mScreenOnEnabled = false;
     private boolean mScreenOnDefault = false;
@@ -3518,7 +3519,7 @@ public class NotificationManagerService extends SystemService {
             event.getText().add(tickerText);
         }
 
-        manager.sendAccessibilityEvent(event);
+            manager.sendAccessibilityEvent(event);
     }
 
     private void cancelNotificationLocked(NotificationRecord r, boolean sendDelete, int reason) {
